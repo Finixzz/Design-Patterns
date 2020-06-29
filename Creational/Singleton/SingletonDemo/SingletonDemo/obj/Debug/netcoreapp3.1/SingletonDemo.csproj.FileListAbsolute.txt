@@ -1,0 +1,13 @@
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.exe
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.deps.json
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.runtimeconfig.json
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.runtimeconfig.dev.json
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.dll
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\bin\Debug\netcoreapp3.1\SingletonDemo.pdb
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.csprojAssemblyReference.cache
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.AssemblyInfoInputs.cache
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.AssemblyInfo.cs
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.csproj.CoreCompileInputs.cache
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.dll
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.pdb
+C:\Users\450G6\Desktop\Design-Patterns\Creational\Singleton\SingletonDemo\SingletonDemo\obj\Debug\netcoreapp3.1\SingletonDemo.genruntimeconfig.cache
