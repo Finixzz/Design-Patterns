@@ -9,21 +9,28 @@ namespace SingletonDemo
     {
 
         private static Singleton _instance;
-        private static int _instanceCounter { get; set; }
+        private static int _instanceCounter = 0;
+        private static readonly object _syncLock = new object();
 
         public static Singleton Instance
         {
             get
             {
-                if (_instance == null)
-                    _instance = new Singleton();
+                if (_instance != null)
+                    return _instance;
+                lock (_syncLock)
+                {
+                    if (_instance == null)
+                        _instance = new Singleton();
+                }
                 return _instance;
             }
         }
 
         private Singleton()
         {
-            Console.WriteLine("Number of instantiated objects: "+(++_instanceCounter));
+            ++_instanceCounter;
+            Console.WriteLine("Number of instantiated objects: "+_instanceCounter);
         }
         
         public void printMessage(string msg)
