@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FactoryDemo.Models.Employee>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+   
+}
+    <a class="btn btn-primary" asp-action="createemployee" asp-controller="home">Create</a>
+    <br /><br />
+    <div class="container">
+        <div class="row">
+            <div>
+                @if (!Model.Any())
+                {
+                    <h1>Currently there are no employees in database. To add one click on Create</h1>
+                }
+                else
+                {
+                    <table class="table" style="width:72.5vw;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Hourly Pay</th>
+                                <th scope="col">Bonus</th>
+                                <th scope="col">Employee type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count(); i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @Model.ElementAt(i).FirstName @Model.ElementAt(i).LastName
+                                    </td>
+                                    <td>
+                                        @Model.ElementAt(i).Department
+                                    </td>
+                                    <td>
+                                        @Model.ElementAt(i).HourlyPay
+                                    </td>                    
+                                    <td>
+                                        @Model.ElementAt(i).Bonus
+                                    </td>
+                                    <td>
+                                        @Model.ElementAt(i).EmployeeType.Name
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
