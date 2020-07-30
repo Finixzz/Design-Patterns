@@ -125,7 +125,7 @@ namespace BuilderDemo
             };
 
             SystemUser user = directorBuilder.GetUser(sysDoctor);
-            Console.WriteLine("System user information");
+            Console.WriteLine("System user information ready to be saved!");
             Console.WriteLine($"UserID: {user.Id}");
             Console.WriteLine($"First Name {user.FirstName}");
             Console.WriteLine($"Last Name: {user.LastName}");
@@ -133,7 +133,7 @@ namespace BuilderDemo
             Console.WriteLine($"Gender: {user.Gender}");
             Console.WriteLine("-----------------------");
 
-            Console.WriteLine("Doctor information");
+            Console.WriteLine("Doctor information data ready to be saved!");
             Doctor newDoctor = directorBuilder.GetDoctor(sysDoctor);
             Console.WriteLine($"UserID: {newDoctor.Id}");
             Console.WriteLine($"Title: {newDoctor.Title}");
