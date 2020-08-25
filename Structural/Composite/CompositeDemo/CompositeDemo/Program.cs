@@ -1,76 +1,127 @@
-﻿using System;
+﻿using CompositeDemo;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CompositeDemo
 {
-    public interface IGraphicElement
+    public interface IIceCream
     {
-        public void Draw();
+        public decimal Price { get; set; }
+
+        public List<string> Ingredients { get; set; }
+
+        public void PrintDetails();
     }
 
-    public class PrimitiveElement : IGraphicElement
+    public class BaseIceCream : IIceCream
     {
-        private string _name;
+        public decimal Price { get; set; }
+        public List<string> Ingredients { get ; set; }
 
-        public PrimitiveElement(string name)
+        public BaseIceCream()
         {
-            _name = name;
-        }
-        public void Draw()
-        {
-            Console.WriteLine(_name + " leaf element drawn");
-        }
-    }
-
-    public class ComplexElement : IGraphicElement
-    {
-        private string _name;
-        private List<IGraphicElement> _elements;
-
-        public ComplexElement(string name)
-        {
-            _name = name;
-            _elements = new List<IGraphicElement>();
+            Price = 1.5M;
+            Ingredients = new List<string>()
+            {
+                "Milk","Sugar","Eggs"
+            };
         }
 
-        public void AddElement(IGraphicElement el)
+        public void PrintDetails()
         {
-            _elements.Add(el);
-        }
+            Console.WriteLine("Base ice cream made");
+            Console.Write("Ingredients: ");
+            Ingredients.ForEach(i =>
+            {
+                if(Ingredients[Ingredients.Count()-1]==i)
+                    Console.Write(i);
+                else
+                    Console.Write(i + " ,");
 
-        public void RemoveElement(IGraphicElement el)
-        {
-            _elements.Remove(el);
-        }
-        public void Draw()
-        {
-            Console.WriteLine("-------------------------");
-            Console.WriteLine("Drawing " + _name);
-            Console.WriteLine("-------------------------");
-            foreach (var el in _elements)
-                el.Draw();
+            });
+            Console.WriteLine();
+            Console.WriteLine("Initial price: "+Price);
         }
     }
 
-    class Program
+    public class IceCreamDecorator : IIceCream
     {
-        static void Main(string[] args)
+        private readonly IIceCream _decoratedIceCream;
+        public decimal Price { get; set; }
+        public List<string> Ingredients { get; set ; }
+
+        public IceCreamDecorator(IIceCream iceCream)
         {
-            IGraphicElement line1 = new PrimitiveElement("left line");
-            IGraphicElement line2 = new PrimitiveElement("top line");
-            IGraphicElement line3 = new PrimitiveElement("right line");
-            IGraphicElement line4 = new PrimitiveElement("bottom line");
-            ComplexElement square = new ComplexElement("square");
-            square.AddElement(line1);
-            square.AddElement(line2);
-            square.AddElement(line3);
-            square.AddElement(line4);
-
-            ComplexElement box = new ComplexElement("box");
-            for (int i = 0; i < 6; i++)
-                box.AddElement(square);
-
-            box.Draw();
+            _decoratedIceCream = iceCream;
+            Price = _decoratedIceCream.Price;
+            Ingredients = new List<string>();
+            _decoratedIceCream.Ingredients.ForEach(i =>
+            {
+                Ingredients.Add(i);
+            });
         }
+
+        public virtual void PrintDetails()
+        {
+            _decoratedIceCream.PrintDetails();
+        }
+    }
+
+    
+    public class ChocolateDecorator : IceCreamDecorator
+    {
+        public ChocolateDecorator(IIceCream iceCream) : base(iceCream)
+        {
+            Price += .55M;
+            Ingredients.Add("Chocolate");
+        }
+
+        public override void PrintDetails()
+        {
+            base.PrintDetails();
+            Console.WriteLine("Added chocolate ingredient");
+            Console.WriteLine("Current price: "+Price);
+        }
+    }
+
+    public class VanillaDecorator : IceCreamDecorator
+    {
+        public VanillaDecorator(IIceCream iceCream) : base(iceCream)
+        {
+            Price += .55M;
+            Ingredients.Add("Vanilla");
+        }
+
+        public override void PrintDetails()
+        {
+            base.PrintDetails();
+            Console.WriteLine("Added vanilla ingredient");
+            Console.WriteLine("Current price: " + Price);
+        }
+    }
+
+    public class ChocolateVanillaDecorator : IceCreamDecorator
+    {
+        public ChocolateVanillaDecorator(IIceCream iceCream) : base (iceCream)
+        {
+            Price += 1.1M;
+            Ingredients.Add("Vanilla");
+            Ingredients.Add()
+        }
+    }
+
+
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        IIceCream iceCream = new BaseIceCream();
+        IIceCream chocolateIceCream = new ChocolateDecorator(iceCream);
+        chocolateIceCream.PrintDetails();
+        Console.WriteLine("------------------------");
+        IIceCream vanillaIceCream = new VanillaDecorator(iceCream);
+        vanillaIceCream.PrintDetails();
     }
 }
