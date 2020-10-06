@@ -43,7 +43,7 @@ namespace DAL.Services.Products.Commands
 
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<Product, ProductDto>(productInDb);
+            return _mapper.Map<Product,ProductDto>(productInDb);
         }
     }
 }

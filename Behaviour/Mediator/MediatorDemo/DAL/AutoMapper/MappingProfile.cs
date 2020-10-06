@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Dtos.ProductDtos;
+using DAL.Dtos.ReviewDtos;
 using DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace DAL.AutoMapper
         {
             CreateMap<Product, ProductDto>();
             CreateMap<ProductDto, Product>();
+
+            CreateMap<Review, ReviewDto>();
+            CreateMap<ReviewDto, Review>();
+      
         }
     }
 }

@@ -83,7 +83,7 @@ namespace MediatorDemo.Controllers
                     Creates product from raw JSON
              </summary>
              <remarks>
-             Sample request:
+                 Sample request:
             
                  POST /api/products
                  {
@@ -117,7 +117,8 @@ namespace MediatorDemo.Controllers
                     Edits existing product data from raw JSON
              </summary>
              <remarks>
-             Sample request:
+
+                 Sample request:
             
                  PUT /api/products/1
                  {

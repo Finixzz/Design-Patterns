@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAL.Dtos.ProductDtos
 {
-    public class ProductDto
+    public class ProductListDto
     {
         public int Id { get; set; }
 
@@ -19,5 +19,9 @@ namespace DAL.Dtos.ProductDtos
 
         [Required]
         public int UnitsInStock { get; set; }
+
+        public int ReviewsCount { get; set; }
+
+        public double? ReviewsAverageVotes { get; set; }
     }
 }
